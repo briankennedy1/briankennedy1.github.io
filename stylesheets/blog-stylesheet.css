@@ -1,0 +1,35 @@
+main {
+  width: 40%;
+  margin: auto;
+  font-family: 'Khula', sans-serif;
+}
+main a {
+  color: #e74c3c;
+  text-decoration: none;
+}
+main a:hover {
+  color: blue;
+  text-decoration: underline;
+}
+h1 {
+  background-color: #333;
+  color: white;
+  padding: 1em;
+  line-height: 1em;
+}
+h2 {
+  padding: 0px 1em;
+}
+h4 {
+  background-color: #333;
+  color: white;
+  padding: 1em;
+}
+p {
+  line-height: 1.5em;
+}
+p.footer {
+  font-weight:bold;
+  font-size: 1em;
+  color: #e74c3c
+}
