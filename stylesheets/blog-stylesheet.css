@@ -23,7 +23,7 @@ h2 {
 h4 {
   background-color: #888;
   color: white;
-  padding: 0.3em 1em 0em 1em;
+  padding: 0.6em 1em 0.3em 1em;
 }
 p {
   line-height: 1.5em;
@@ -34,7 +34,7 @@ p.footer {
   color: #B43013
 }
 h4 i {
-  margin-right: 0.3em;
+  margin-right: 0.6em;
 }
 h4 a {
   color: white;
