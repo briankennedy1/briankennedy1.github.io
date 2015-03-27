@@ -4,7 +4,7 @@ main {
   font-family: 'Khula', sans-serif;
 }
 main a {
-  color: #e74c3c;
+  color: #B43013;
   text-decoration: none;
 }
 main a:hover {
@@ -12,7 +12,7 @@ main a:hover {
   text-decoration: underline;
 }
 h1 {
-  background-color: #333;
+  background-color: #B43013;
   color: white;
   padding: 1em;
   line-height: 1em;
@@ -31,5 +31,5 @@ p {
 p.footer {
   font-weight:bold;
   font-size: 1em;
-  color: #e74c3c
+  color: #B43013
 }
