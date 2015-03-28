@@ -33,6 +33,9 @@ p.footer {
   font-size: 1em;
   color: #B43013
 }
+p.image {
+  text-align: center;
+}
 h4 i {
   margin-right: 0.6em;
 }
