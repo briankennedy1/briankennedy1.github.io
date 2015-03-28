@@ -42,3 +42,7 @@ h4 a {
 h4 a:hover {
   color: #B43013;
 }
+code {
+  background-color: #ccc;
+  padding: 5px;
+}
