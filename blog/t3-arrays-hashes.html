@@ -27,15 +27,16 @@
     <p><code>babe_hrleader_years = [1918, 1919, 1920, 1921, 1923, 1924, 1926, 1927, 1928, 1929, 1930, 1931]</code></p>
     <p>Yeah, Babe only won one MVP. Also, the All-Star Game didn't start until 1933.</p>
     <p>We're starting to build up a decent profile on Babe Ruth. What if we wanted to have access to his full name, his jersey number, height and weight as well?</p>
+    <hr/>
     <p>Theres a way to package all of these things together into one object in Ruby, it's called a hash.</p>
     <p>Pulling everything into a hash will give us some standardization and readability. It's a great way to save this complicated data set we're building.</p>
     <p>There are a shitload of ways to build a hash, but for this example I'm going to create it literally and use the <a href="https://github.com/styleguide/ruby">GitHub Ruby style guide</a>.</p>
     <p>Alrighty, Babe, here we go:</p>
     <p><script src="https://gist.github.com/briankennedy1/8589cca0b8c4c47565c6.js"></script></p>
-    <p>Sweet! So now our hash includes all the great stuff that we figured out at the beginning of this blog and more. Notice how we have strings and arrays as values inside our hash.</p>
-    <p>To get inside our hash we can run some pretty simple code:</p>
-    <p><code>babe_ruth[:jersey_number]</code> will return <code>"3"</code></p>
-    <p>Let's try our example from up above and see what year was during Babe's 20th season: <code>babe_ruth[:years][19]</code> Yep, we get <code>1933</code> just like above!</p>
+    <p>Sweet! So now our hash includes all the great stuff that we figured out at the beginning of this blog and more. The items on the left side of <code>=></code> inside the hash, like <code>:jersey_number</code> are called keys. And the values on the right side of the <code>=></code> are called values. More specifically, the keys are symbols because they have the <code>:</code> at the start. You can also use strings as keys.</p>
+    <p>Notice how we have strings and arrays as values inside our hash.</p>
+    <p>To access the values inside our hash we can run some pretty simple code that is much like accessing an array: <code>babe_ruth[:jersey_number]</code> will return <code>"3"</code></p>
+    <p>Let's try our example from up above and see what year it was during Babe's 20th season: <code>babe_ruth[:years][19]</code> Yep, we get <code>1933</code> just like above!</p>
     <p class="footer"><a href="http://briankennedy1.github.io">Posted by Brian Kennedy</a>. <a href="http://devbootcamp.com">DBC</a> Technical Blog #3</p>
   </section>
 </main>
