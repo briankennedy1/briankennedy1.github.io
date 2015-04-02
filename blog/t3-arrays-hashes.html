@@ -19,11 +19,25 @@
     <p><code>babe_years = [1914, 1915, 1916, 1917, 1918, 1919, 1920, 1921, 1922, 1923, 1924, 1925, 1926, 1927, 1928, 1929, 1930, 1931, 1932, 1933, 1934, 1935]</code></p>
     <p>Super simple. A list of years. If you wanted to know what the year was during Babe Ruth's 20th season you would just do <code>babe_years[19]</code> (arrays start counting at 0, so the 20th season is at index 19). That search of the array would return <code>1933</code>.</p>
     <p>Cool, Babe Ruth's 20th season was in 1933.</p>
-    <p>But there's a lot more to Babe Ruth than the years he played. There's the years he was an All-Star, the years he was an MVP. The years he lead the league in home runs.</p>
+    <hr/>
+    <p>But there's a lot more to Babe Ruth than the years he played. There's the years he was an All-Star, the years he was an MVP, the years he lead the league in home runs, and on and on and on.</p>
     <p>We could create a new array for each of these little groups of years.</p>
     <p><code>babe_mvp_years = [1923]</code></p>
     <p><code>babe_allstar_years = [1933, 1934]</code></p>
+    <p><code>babe_hrleader_years = [1918, 1919, 1920, 1921, 1923, 1924, 1926, 1927, 1928, 1929, 1930, 1931]</code></p>
     <p>Yeah, Babe only won one MVP. Also, the All-Star Game didn't start until 1933.</p>
+    <p>We're starting to build up a decent profile on Babe Ruth. What if we wanted to have access to his full name, his jersey number, height and weight as well?</p>
+    <p>Theres a way to package all of these things together into one object in Ruby, it's called a hash.</p>
+    <p>Pulling everything into a hash will give us some standardization and readability. It can also form a template for creating similar profiles on other players. It's a great way to save this complicated data set we're building.</p>
+    <p>There are a shitload of ways to build a hash, but for this example I'm going to literally create it and use the <a href="https://github.com/styleguide/ruby">GitHub Ruby style guide</a>.</p>
+    <p>Alrighty, Babe, here we go.</p>
+    <p><code>babe_ruth = {</code></p>
+    <p><code>:name => "Babe Ruth"</code></p>
+    <p><code>:full_name => "George Herman Ruth"</code></p>
+    <p><code>:height => "6'2\""</code></p>
+    <p><code>:weight => "215 lbs."</code></p>
+    <p><code>:jersey_number => "3"</code></p>
+    <p><code>}</code></p>
     <p class="footer"><a href="http://briankennedy1.github.io">Posted by Brian Kennedy</a>. <a href="http://devbootcamp.com">DBC</a> Technical Blog #3</p>
   </section>
 </main>
