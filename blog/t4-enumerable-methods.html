@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+  <title>Groupin' ain't easy: Using the group_by method in Ruby| DBC Technical Blog #4 | Brian Kennedy</title>
+  <meta charset="UTF-8">
+  <link href='http://fonts.googleapis.com/css?family=Khula:800,400' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css">
+</head>
+
+<main>
+  <h1>Groupin' ain't easy</h1>
+  <h2>Using the group_by method in Ruby</h2>
+  <h4>April 9, 2015</h4>
+
+  <section>
+    <!-- Content -->
+    <p>I spent some time this week learning about the #group_by method for arrays.</p>
+    <p>The method takes an array and returns a hash that is grouped by your input. Check out the examples below to get an idea of how it works.</p>
+    <p>I started with an array called <code>sf_group</code> that contains all of my SF cohort's names.</p>
+    
+    <h3>Group by names that inlcude 'k'</h3>
+    <p><code>sf_group.group_by { |i| i.scan(/k/i) }</code></p>
+    
+    <p><code>#=> {["k"]=>["Alex Cusack", "Patrick Betti", "Vivek Poola"], ["K"]=>["Alex Kass", "Brian Kennedy", "Christopher William Kramlich", "Karan Aditya"], []=>["Andrew Donato", "Andrew Dowd", "Arielle Chen", "Carissa Blossom", "David Matthew Grotting", "Ellis Marte", "Emily Boerner", "Eric Flores", "Eric Saxman", "Ian Andrew Harris", "James Newman", "Jeffrey Chang", "Jennifer Jaochico", "Josh Ullman", "Le Tran", "Michael Farr", "Miche Weinberg", "Ryan Posthumus", "Tanay Arora", "Travis R Siebenhaar"]}</code></p>
+    <p>I first tried to group by names including K's using #include?("k"). But that method would only group values with lowercase K's. I wanted uppercase and lowercase K's. So I read up on regular expressions and found #scan. This is going to come in handy! /k/ searches for the letter K and the i at the end ignores the case of the letter.</p>
+    
+    
+    <h3>Group by first letter of first name</h3>
+    <p><code>sf_group.group_by { |i| i[0] }</code></p>
+    
+    <p><code>#=> {"A"=>["Alex Cusack", "Alex Kass", "Andrew Donato", "Andrew Dowd", "Arielle Chen"], "B"=>["Brian Kennedy"], "C"=>["Carissa Blossom", "Christopher William Kramlich"], "D"=>["David Matthew Grotting"], "E"=>["Ellis Marte", "Emily Boerner", "Eric Flores", "Eric Saxman"], "I"=>["Ian Andrew Harris"], "J"=>["James Newman", "Jeffrey Chang", "Jennifer Jaochico", "Josh Ullman"], "K"=>["Karan Aditya"], "L"=>["Le Tran"], "M"=>["Michael Farr", "Miche Weinberg"], "P"=>["Patrick Betti"], "R"=>["Ryan Posthumus"], "T"=>["Tanay Arora", "Travis R Siebenhaar"], "V"=>["Vivek Poola"]} </code></p>
+    <p>This hash is returned very nicely because it's implictly in alphabetical order.</p>
+    <p>I thought about grouping by letters in last name, but that would require a lot more logic. In theory I would start from the back of the name and stop when I hit the first bit of white space. Then I would use the first letter after the whitespace and assume that was the first letter in the last name. But that doesn't work for names like Van Dam. If I had to do such a thing I might break the data up FIRST, and then populate my array. The key to good output is good input.</p>
+    
+    
+    <h3>Group by amount of whitespace</h3>
+    <p><code>sf_group.group_by { |i| i.scan(/\s/) }</code></p>
+    <p><code>#=> {[" "]=>["Alex Cusack", "Alex Kass", "Andrew Donato", "Andrew Dowd", "Arielle Chen", "Brian Kennedy", "Carissa Blossom", "Ellis Marte", "Emily Boerner", "Eric Flores", "Eric Saxman", "James Newman", "Jeffrey Chang", "Jennifer Jaochico", "Josh Ullman", "Karan Aditya", "Le Tran", "Michael Farr", "Miche Weinberg", "Patrick Betti", "Ryan Posthumus", "Tanay Arora", "Vivek Poola"], [" ", " "]=>["Christopher William Kramlich", "David Matthew Grotting", "Ian Andrew Harris", "Travis R Siebenhaar"]}</code></p>
+    
+    <p>My goal for this was to find out who had more than two names by seeing how many spaces were in each name. But that's not really the point of this method. The point is to show you how many occurences there were and group them together.</p>
+    <p>But this does get me some results that I can then use to display who has more than two names.</p>
+    
+    
+    <h3>Group by length of name</h3>
+    <p><code>sf_group.group_by { |i|  i.length }</code></p>
+    <p><code>#=> {11=>["Alex Cusack", "Andrew Dowd", "Ellis Marte", "Eric Flores", "Eric Saxman", "JoshUllman", "Tanay Arora", "Vivek Poola"], 9=>["Alex Kass"], 13=>["Andrew Donato", "Brian Kennedy", "Emily Boerner", "Jeffrey Chang", "Patrick Betti"], 12=>["Arielle Chen", "James Newman", "Karan Aditya", "Michael Farr"], 15=>["Carissa Blossom"], 28=>["Christopher William Kramlich"], 22=>["David Matthew Grotting"], 17=>["Ian Andrew Harris", "Jennifer Jaochico"], 7=>["Le Tran"], 14=>["Miche Weinberg", "Ryan Posthumus"], 19=>["Travis R Siebenhaar"]}</code></p>
+    
+    <p>We were able to group everything up by the length of each full name, but the hash returned sorted by the first name of the first value. That's kinda funky, as I would prefer to see the hash ordered by the key. But hashes are unsorted by nature, so that can be bothersome to us detail-oriented folks.</p>
+    <p>If you run #sort on the hash, you will get an array that is much more to my liking.</p>
+    <p><code>#=> [[7, ["Le Tran"]], [9, ["Alex Kass"]], [11, ["Alex Cusack", "Andrew Dowd", "Ellis Marte", "Eric Flores", "Eric Saxman", "Josh Ullman", "Tanay Arora", "Vivek Poola"]], [12, ["Arielle Chen", "James Newman", "Karan Aditya", "Michael Farr"]], [13, ["Andrew Donato", "Brian Kennedy", "Emily Boerner", "Jeffrey Chang", "Patrick Betti"]], [14, ["Miche Weinberg", "Ryan Posthumus"]], [15, ["Carissa Blossom"]], [17, ["Ian Andrew Harris", "Jennifer Jaochico"]], [19, ["Travis R Siebenhaar"]], [22, ["David Matthew Grotting"]], [28, ["Christopher William Kramlich"]]]</code></p>
+    <p class="footer"><a href="http://briankennedy1.github.io">Posted by Brian Kennedy</a>. <a href="http://devbootcamp.com">DBC</a> Technical Blog #<4/p>
+  </section>
+</main>
+
