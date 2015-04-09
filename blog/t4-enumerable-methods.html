@@ -25,15 +25,14 @@
     
     <h3>Group by names that include 'k'</h3>
     <p><code>sf_group.group_by { |i| i.scan(/k/i) }</code></p>
-    <p>The block I used with the <code>group_by</code> method above returns groups of the letter K. One group has the lowercase k's, one has the uppercase K's and the last group is everything wihtout a k. Color added for emphasis.</p>
+    <p>The block I used with the <code>group_by</code> method above returns groups of the letter K. One group has the lowercase k's, one has the uppercase K's and the last group is everything without a k. Color added for emphasis.</p>
     <p><code>#=> {<span style="color:blue;">["k"]=>["Alex Cusack", "Patrick Betti", "Vivek Poola"]</span>, <span style="color:green;">["K"]=>["Alex Kass", "Brian Kennedy", "Christopher William Kramlich", "Karan Aditya"]</span>, <span style="color:purple;">[]=>["Andrew Donato", "Andrew Dowd", "Arielle Chen", "Carissa Blossom", "David Matthew Grotting", "Ellis Marte", "Emily Boerner", "Eric Flores", "Eric Saxman", "Ian Andrew Harris", "James Newman", "Jeffrey Chang", "Jennifer Jaochico", "Josh Ullman", "Le Tran", "Michael Farr", "Miche Weinberg", "Ryan Posthumus", "Tanay Arora", "Travis R Siebenhaar"]</span>}</code></p>
     <p>I first tried to group by names including K's using <code>#include?("k")</code>. But that method would only group values with lowercase K's. I wanted uppercase and lowercase K's. So I read up on regular expressions and found <code>#scan</code>. This is going to come in handy! <code>/k/</code> searches for the letter K and the <code>i</code> at the end ignores the case of the letter.</p>
     
     <h3>Group by amount of whitespace</h3>
     <p><code>sf_group.group_by { |i| i.scan(/\s/) }</code></p>
-    <p><code>#=> {[" "]=>["Alex Cusack", "Alex Kass", "Andrew Donato", "Andrew Dowd", "Arielle Chen", "Brian Kennedy", "Carissa Blossom", "Ellis Marte", "Emily Boerner", "Eric Flores", "Eric Saxman", "James Newman", "Jeffrey Chang", "Jennifer Jaochico", "Josh Ullman", "Karan Aditya", "Le Tran", "Michael Farr", "Miche Weinberg", "Patrick Betti", "Ryan Posthumus", "Tanay Arora", "Vivek Poola"], [" ", " "]=>["Christopher William Kramlich", "David Matthew Grotting", "Ian Andrew Harris", "Travis R Siebenhaar"]}</code></p>
-    
     <p>My goal for this was to find out who had more than two names by seeing how many spaces were in each name. But that's not really the point of this method. The point is to show you how many occurences there were and group them together.</p>
+    <p><code>#=> {[" "]=>["Alex Cusack", "Alex Kass", "Andrew Donato", "Andrew Dowd", "Arielle Chen", "Brian Kennedy", "Carissa Blossom", "Ellis Marte", "Emily Boerner", "Eric Flores", "Eric Saxman", "James Newman", "Jeffrey Chang", "Jennifer Jaochico", "Josh Ullman", "Karan Aditya", "Le Tran", "Michael Farr", "Miche Weinberg", "Patrick Betti", "Ryan Posthumus", "Tanay Arora", "Vivek Poola"], [" ", " "]=>["Christopher William Kramlich", "David Matthew Grotting", "Ian Andrew Harris", "Travis R Siebenhaar"]}</code></p>
     <p>But this does get me some results that I can then use to display who has more than two names.</p>
     
     <h3>Group by length of name</h3>
