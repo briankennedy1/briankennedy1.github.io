@@ -17,20 +17,17 @@
     <p>Simply put, the <code>group_by</code> method takes an array and a code block and returns a hash that contains your array split up and grouped by the instructions of your code block. Check out the examples below to get an idea of how it works.</p>
     <p>I started with an array called <code>sf_group</code> that contains all of my SF cohort's names.</p>
     
+    <h3>Group by first letter of first name</h3>
+    <p><code>sf_group.group_by { |i| i[0] }</code></p>
+    <p>The code block here looks at every first letter in every element of the array and groups them up accordingly. This hash is returned very nicely because it's implictly in alphabetical order.</p>
+    <p><code>#=> {"A"=>["Alex Cusack", "Alex Kass", "Andrew Donato", "Andrew Dowd", "Arielle Chen"], "B"=>["Brian Kennedy"], "C"=>["Carissa Blossom", "Christopher William Kramlich"], "D"=>["David Matthew Grotting"], "E"=>["Ellis Marte", "Emily Boerner", "Eric Flores", "Eric Saxman"], "I"=>["Ian Andrew Harris"], "J"=>["James Newman", "Jeffrey Chang", "Jennifer Jaochico", "Josh Ullman"], "K"=>["Karan Aditya"], "L"=>["Le Tran"], "M"=>["Michael Farr", "Miche Weinberg"], "P"=>["Patrick Betti"], "R"=>["Ryan Posthumus"], "T"=>["Tanay Arora", "Travis R Siebenhaar"], "V"=>["Vivek Poola"]} </code></p>
+    <p>I thought about grouping by letters in last name, but that would require a lot more logic. In theory I would start from the back of the name and stop when I hit the first bit of white space. Then I would use the first letter after the whitespace and assume that was the first letter in the last name. But that doesn't work for names like Van Dam. If I had to do such a thing I might break the data up FIRST, and then populate my array. The key to good output is good input.</p>
+    
     <h3>Group by names that include 'k'</h3>
     <p><code>sf_group.group_by { |i| i.scan(/k/i) }</code></p>
     <p>The block I used with the <code>group_by</code> method above returns groups of the letter K. One group has the lowercase k's, one has the uppercase K's and the last group is everything wihtout a k. Color added for emphasis.</p>
     <p><code>#=> {<span style="color:blue;">["k"]=>["Alex Cusack", "Patrick Betti", "Vivek Poola"]</span>, <span style="color:green;">["K"]=>["Alex Kass", "Brian Kennedy", "Christopher William Kramlich", "Karan Aditya"]</span>, <span style="color:purple;">[]=>["Andrew Donato", "Andrew Dowd", "Arielle Chen", "Carissa Blossom", "David Matthew Grotting", "Ellis Marte", "Emily Boerner", "Eric Flores", "Eric Saxman", "Ian Andrew Harris", "James Newman", "Jeffrey Chang", "Jennifer Jaochico", "Josh Ullman", "Le Tran", "Michael Farr", "Miche Weinberg", "Ryan Posthumus", "Tanay Arora", "Travis R Siebenhaar"]</span>}</code></p>
     <p>I first tried to group by names including K's using <code>#include?("k")</code>. But that method would only group values with lowercase K's. I wanted uppercase and lowercase K's. So I read up on regular expressions and found <code>#scan</code>. This is going to come in handy! <code>/k/</code> searches for the letter K and the <code>i</code> at the end ignores the case of the letter.</p>
-    
-    
-    <h3>Group by first letter of first name</h3>
-    <p><code>sf_group.group_by { |i| i[0] }</code></p>
-    
-    <p><code>#=> {"A"=>["Alex Cusack", "Alex Kass", "Andrew Donato", "Andrew Dowd", "Arielle Chen"], "B"=>["Brian Kennedy"], "C"=>["Carissa Blossom", "Christopher William Kramlich"], "D"=>["David Matthew Grotting"], "E"=>["Ellis Marte", "Emily Boerner", "Eric Flores", "Eric Saxman"], "I"=>["Ian Andrew Harris"], "J"=>["James Newman", "Jeffrey Chang", "Jennifer Jaochico", "Josh Ullman"], "K"=>["Karan Aditya"], "L"=>["Le Tran"], "M"=>["Michael Farr", "Miche Weinberg"], "P"=>["Patrick Betti"], "R"=>["Ryan Posthumus"], "T"=>["Tanay Arora", "Travis R Siebenhaar"], "V"=>["Vivek Poola"]} </code></p>
-    <p>This hash is returned very nicely because it's implictly in alphabetical order.</p>
-    <p>I thought about grouping by letters in last name, but that would require a lot more logic. In theory I would start from the back of the name and stop when I hit the first bit of white space. Then I would use the first letter after the whitespace and assume that was the first letter in the last name. But that doesn't work for names like Van Dam. If I had to do such a thing I might break the data up FIRST, and then populate my array. The key to good output is good input.</p>
-    
     
     <h3>Group by amount of whitespace</h3>
     <p><code>sf_group.group_by { |i| i.scan(/\s/) }</code></p>
@@ -38,7 +35,6 @@
     
     <p>My goal for this was to find out who had more than two names by seeing how many spaces were in each name. But that's not really the point of this method. The point is to show you how many occurences there were and group them together.</p>
     <p>But this does get me some results that I can then use to display who has more than two names.</p>
-    
     
     <h3>Group by length of name</h3>
     <p><code>sf_group.group_by { |i|  i.length }</code></p>
