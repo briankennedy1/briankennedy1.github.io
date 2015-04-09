@@ -13,15 +13,16 @@
 
   <section>
     <!-- Content -->
-    <p>I spent some time this week learning about the #group_by method for arrays.</p>
+    <p>I spent some time this week learning about the <code>#group_by</code> method for arrays.</p>
     <p>The method takes an array and returns a hash that is grouped by your input. Check out the examples below to get an idea of how it works.</p>
     <p>I started with an array called <code>sf_group</code> that contains all of my SF cohort's names.</p>
     
-    <h3>Group by names that inlcude 'k'</h3>
+    <h3>Group by names that include 'k'</h3>
     <p><code>sf_group.group_by { |i| i.scan(/k/i) }</code></p>
     
     <p><code>#=> {["k"]=>["Alex Cusack", "Patrick Betti", "Vivek Poola"], ["K"]=>["Alex Kass", "Brian Kennedy", "Christopher William Kramlich", "Karan Aditya"], []=>["Andrew Donato", "Andrew Dowd", "Arielle Chen", "Carissa Blossom", "David Matthew Grotting", "Ellis Marte", "Emily Boerner", "Eric Flores", "Eric Saxman", "Ian Andrew Harris", "James Newman", "Jeffrey Chang", "Jennifer Jaochico", "Josh Ullman", "Le Tran", "Michael Farr", "Miche Weinberg", "Ryan Posthumus", "Tanay Arora", "Travis R Siebenhaar"]}</code></p>
-    <p>I first tried to group by names including K's using #include?("k"). But that method would only group values with lowercase K's. I wanted uppercase and lowercase K's. So I read up on regular expressions and found #scan. This is going to come in handy! /k/ searches for the letter K and the i at the end ignores the case of the letter.</p>
+    <p>The <code>group_by</code> method returns groups of the letter K. One group has the lowercase k's, one has the uppercase K's and the last group is everything wihtout a k.</p>
+    <p>I first tried to group by names including K's using <code>#include?("k")</code>. But that method would only group values with lowercase K's. I wanted uppercase and lowercase K's. So I read up on regular expressions and found <code>#scan</code>. This is going to come in handy! /k/ searches for the letter K and the i at the end ignores the case of the letter.</p>
     
     
     <h3>Group by first letter of first name</h3>
@@ -45,7 +46,7 @@
     <p><code>#=> {11=>["Alex Cusack", "Andrew Dowd", "Ellis Marte", "Eric Flores", "Eric Saxman", "JoshUllman", "Tanay Arora", "Vivek Poola"], 9=>["Alex Kass"], 13=>["Andrew Donato", "Brian Kennedy", "Emily Boerner", "Jeffrey Chang", "Patrick Betti"], 12=>["Arielle Chen", "James Newman", "Karan Aditya", "Michael Farr"], 15=>["Carissa Blossom"], 28=>["Christopher William Kramlich"], 22=>["David Matthew Grotting"], 17=>["Ian Andrew Harris", "Jennifer Jaochico"], 7=>["Le Tran"], 14=>["Miche Weinberg", "Ryan Posthumus"], 19=>["Travis R Siebenhaar"]}</code></p>
     
     <p>We were able to group everything up by the length of each full name, but the hash returned sorted by the first name of the first value. That's kinda funky, as I would prefer to see the hash ordered by the key. But hashes are unsorted by nature, so that can be bothersome to us detail-oriented folks.</p>
-    <p>If you run #sort on the hash, you will get an array that is much more to my liking.</p>
+    <p>If you run <code>#sort</code> on the hash, you will get an array that is much more to my liking.</p>
     <p><code>#=> [[7, ["Le Tran"]], [9, ["Alex Kass"]], [11, ["Alex Cusack", "Andrew Dowd", "Ellis Marte", "Eric Flores", "Eric Saxman", "Josh Ullman", "Tanay Arora", "Vivek Poola"]], [12, ["Arielle Chen", "James Newman", "Karan Aditya", "Michael Farr"]], [13, ["Andrew Donato", "Brian Kennedy", "Emily Boerner", "Jeffrey Chang", "Patrick Betti"]], [14, ["Miche Weinberg", "Ryan Posthumus"]], [15, ["Carissa Blossom"]], [17, ["Ian Andrew Harris", "Jennifer Jaochico"]], [19, ["Travis R Siebenhaar"]], [22, ["David Matthew Grotting"]], [28, ["Christopher William Kramlich"]]]</code></p>
     <p class="footer"><a href="http://briankennedy1.github.io">Posted by Brian Kennedy</a>. <a href="http://devbootcamp.com">DBC</a> Technical Blog #<4/p>
   </section>
