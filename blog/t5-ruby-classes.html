@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+  <title>Objectifying the world: X-Men trading cards as Ruby objects | Tech Blog #5 | Brian Kennedy</title>
+  <meta charset="UTF-8">
+  <link href='http://fonts.googleapis.com/css?family=Khula:800,400' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css">
+</head>
+
+<main>
+  <!-- Post Title -->
+  <h1>Objectifying the world</h1>
+  <h2>X-Men trading cards as Ruby objects</h2>
+  <!-- Posting date -->
+  <h4>4/15/15</h4>
+
+  <section>
+    <!-- Content -->
+    <p>We've been focusing on Ruby objects this week at Dev Bootcamp. It's starting to click for me, so I'd like to share a bit of what I've learned.</p>
+    <p>Ruby's object-oriented nature makes it easy to model real-world things. The classic beginner example is creating a die object.</p>
+    <p>A normal die has six sides and from 1 to 6 dots on each side. If you roll a die your result is a number between 1 and 6.</p>
+    <p>Here's what that simple object looks like in Ruby:</p>
+    <p><script src="https://gist.github.com/briankennedy1/f68705c5e98632094ae3.js"></script></p>
+    <p>Like I said, this is the basic example. Let's crank it up a notch.</p>
+    <h3>X-Men trading card objects</h3>
+    <img src="../img/xmen.jpg">
+    <p>X-Men trading cards are interesting real-world objects. The <a href="http://www.uncannyxmen.net/cards/x-men-series-1-1992">1992 X-Men set by Impel</a> contains 100 common cards and 5 rare, randomly inserted hologram cards.</p>
+    <p>You buy the cards in a pack, and a pack contains 6 cards. If I recall correctly, 1 in 9 packs had a hologram card inserted.</p>
+    <p>Let's break that down again:</p>
+    <p>
+    <ul>
+    	<li>6 random cards per pack</li>
+    	<li>1/9 chance to get a rare card</li>
+    	<li>100 common cards in the set</li>
+    	<li>5 rare cards in the set</li>
+    </ul>
+    </p>
+	<p>Let's translate this into a Ruby object. I see us having methods like pack#buy (fills a pack with random cards) and pack#unwrap (reveals the contents of the cards.</p>
+	<p>The tricky part will be filling the pack with cards, especially the random hologram cards.</p>
+	<p>Let's give it a try:</p>
+	<p><script src="https://gist.github.com/briankennedy1/a24cfbbfc35ca7a42f75.js"></script></p>
+	<p>Holy crap, when I ran my first test of unwrapping four packs I got two hologram cards! Way too lucky! I also got a couple of the same cards in different packs, which is normal.</p>
+	<p><script src="https://gist.github.com/briankennedy1/d0429fed14483055a6e8.js"></script></p>
+    <p class="footer"><a href="http://briankennedy1.github.io">Posted by Brian Kennedy</a>. <a href="http://devbootcamp.com">DBC</a> Technical Blog #5</p>
+  </section>
+</main>
