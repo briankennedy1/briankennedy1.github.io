@@ -14,11 +14,19 @@
   <h2>A look at classes and modules in Ruby</h2>
 
   <!-- Posting date -->
-  <h4></h4>
+  <h4>April 23, 2015</h4>
 
   <section>
     <!-- Content -->
-    <p></p>
+    <p>On the surface classes and modules look very similar in Ruby.</p>
+    <p>But even though they both encapsulate several methods, Classes are more like factories and Modules are more like libaries.</p>
+    <p>Factories pump out objects. That's exactly what classes do when you call <code>Class.new</code>. A new object is created that inherits all the attributes of the class. If it's a kayak factory the kayak object that is created has attributes like length, color, and number of seats.</p>
+    <p>But you wouldn't get that from a module.</p>
+    <p>Libraries give you knowledge. You go into them and reference all the different pieces of wisdom that humankind have created. You pull out what you need.</p>
+    <p>In a library you could learn where to paddle your kayak. How to fish off of your kayak. How to put your kayak on your car. These are all bits of knowledge that you can reference.</p>
+    <p>Modules work the same way. Over time you will start to build up a libary of methods that take care of specific jobs. You don't want to re-write these methods from scratch, so you put them in your modules and bring those modules into your code as needed.</p>
+    <p>One example would be a "login" module. If every web site you build requires authentication to work, then you'll be writing login code over and over. Unless you do it right once and plop it in your library.</p>
+    <p>Then you bring in your module and use what methods you need.</p>
     <p class="footer"><a href="http://briankennedy1.github.io">Posted by Brian Kennedy</a>. <a href="http://devbootcamp.com">DBC</a> Technical Blog #5</p>
   </section>
 </main>
