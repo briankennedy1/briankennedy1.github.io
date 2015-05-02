@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-  <title>Useful methods, JavaScript vs. Ruby | DBC Technical Blog #6 | Brian Kennedy</title>
+  <title>Leaving the warm blanket of Ruby for JavaScript: Comparing useful methods in both languages | DBC Technical Blog #6 | Brian Kennedy</title>
   <meta charset="UTF-8">
   <link href='http://fonts.googleapis.com/css?family=Khula:800,400' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css">
@@ -8,7 +8,8 @@
 
 <main>
   <!-- Post Title -->
-  <h1>Useful methods, JavaScript vs. Ruby</h1>
+  <h1>Leaving the warm blanket of Ruby for JavaScript</h1>
+  <h2>Comparing useful methods in both languages</h2>
   <!-- Posting date -->
   <h4>May 2, 2015</h4>
 
@@ -21,12 +22,32 @@
     <p>I felt pretty naked at first when I was making my way around JavaScript. I felt like I had to build everything from scratch instead of just using the easy Ruby built-ins.</p>
     <p>But in researching for this blog, I found I may have been overreacting.</p>
     <p>I took a look at some of the most common/powerful array methods in Ruby (select, map, reduce) and found their brothers in JavaScript (filter, map, reduce).</p>
-    <h3>Select / Filter</h3>
-    <p>The idea behind select / filter is to only return the elements in the array that match your criteria.</p>
+    <h3>Select and Filter</h3>
+    <p>The idea behind select (Ruby) and filter (JavaScript) is to only return the elements in the array that match your criteria.</p>
     <p><strong>Select in Ruby</strong></p>
     <p><script src="https://gist.github.com/briankennedy1/472e7e8fa059bd5723f1.js"></script></p>
     <p><strong>Filter in JavaScript</strong></p>
     <p><script src="https://gist.github.com/briankennedy1/c61dfd0bddea001c7111.js"></script></p>
+    <p>Hmmm, these examples look very similar. The biggest difference is that you need that big funky <code>function</code> declaration in JavaScript. In Ruby you just use the code block inside the curly braces to do that.</p>
+    <p>Maybe this isn't so bad.</p>
+    <h3>Map</h3>
+    <p>Map is used to return a new array with elements that have been modified by your code block.</p>
+    <p><strong>Map in Ruby</strong></p>
+    <p><script src="https://gist.github.com/briankennedy1/56e9a56fc566bf5d1cd3.js"></script></p>
+    <p><strong>Map in JavaScript</strong></p>
+    <script src="https://gist.github.com/briankennedy1/0e7fe068ba406a87360b.js"></script>
+    <p>Once again, these two pieces of code are not that different.</p>
+    <h3>Reduce</h3>
+    <p>Reduce brings the elements of an array down to single value based on your code block.</p>
+    <p><strong>Reduce in Ruby</strong></p>
+    <p><script src="https://gist.github.com/briankennedy1/e69d5ea032fdf70fd0f9.js"></script></p>
+    <p><strong>Reduce in JavaScript</strong></p>
+    <p><script src="https://gist.github.com/briankennedy1/8d256bac1112dce3dddc.js"></script></p>
+    <p>Yep, you have to write <code>function</code> and <code>return</code> explicitly in JavaScript, but otherwise these look very similar.</p>
+    <h3>Conclusion</h3>
+    <p>This is a very superficial exploration for someone transitioning from Ruby to JavaScript, but I think it shows that the languages are similar enough to translate with ease.</p>
+
+
     <p class="footer"><a href="http://briankennedy1.github.io">Posted by Brian Kennedy</a>. <a href="http://devbootcamp.com">DBC</a> Technical Blog #6</p>
   </section>
 </main>
