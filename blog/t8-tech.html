@@ -18,10 +18,17 @@
 
   <section>
     <!-- Content -->
-    <p>Recursion is when a function calls itself.</p>
-    <p>Let's start with a simple example, where the function countDown will log the first argument to the console and then call itself with the argument - 1.</p>
+    <p>Recursion happens when a function calls itself.</p>
+    <p>Let's start with a simple example, where the function countDown will log the first argument to the console and then calls itself, but this time with the argument - 1.</p>
     <p><script src="https://gist.github.com/briankennedy1/ef8e0219f7a57d63ae9b.js"></script></p>
-    <p>Loops are very similar to recursion. According to my <a href="http://eloquentjavascript.net/03_functions.html">various</a> <a href="http://ruby.bastardsbook.com/chapters/recursion/">readings</a> on recursion, loops will usually get the job done</p>
+    <p>Take note that countDown also breaks out of the loop once the argument hits 0.</p>
+    <p>We can see how this example is really similar to a loop.</p>
+    <p><script src="https://gist.github.com/briankennedy1/c74941c17a092864a7cf.js"></script></p>
+    <p>According to my <a href="http://eloquentjavascript.net/03_functions.html">various</a> <a href="http://ruby.bastardsbook.com/chapters/recursion/">readings</a> on recursion, loops will usually get the job done just fine. They cost less memory as well. But sometimes recursion looks better and is more logical to the human programmer.</p>
+    <p>One classic example of recursion is calculating a factorial. This is thoroughly worked through in the <a href="http://www.codecademy.com/courses/javascript-lesson-205">JavaScript Recursion course on Codecademy</a>.</p>
+    <p>The factorial of a number is calculated by multiplying the number times the number minus 1, times the number minus 2, and all the way down until you hit 1.</p>
+    <p>So, if you wanted the factorial of 5, you multiply 5 * 4 * 3 * 2 * 1. Let's look at this in JavaScript.</p>
+    <p><script src="https://gist.github.com/briankennedy1/43cf1e28de50ca7ab986.js"></script></p>
     <p class="footer"><a href="http://briankennedy1.github.io">Posted by Brian Kennedy</a>. <a href="http://devbootcamp.com">DBC</a> Technical Culture Blog #7</p>
   </section>
 </main>
